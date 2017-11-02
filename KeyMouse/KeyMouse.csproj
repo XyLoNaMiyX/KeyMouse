@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6050D776-3673-4E78-85AF-9E9E6560222A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KeyMouse</RootNamespace>
+    <AssemblyName>KeyMouse</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>KeyMouse.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7515288A7188103BEF8757928E1211C825125C85</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LonamiWebs.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>LonamiWebs.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainF.Designer.cs">
+      <DependentUpon>MainF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MouseKeyboardActivityMonitor\BaseHookListener.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\Controls\HookType.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\Controls\MouseKeyEventProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MouseKeyboardActivityMonitor\HotKeys\HotKeyArgs.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\HotKeys\HotKeySet.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\HotKeys\HotKeySetCollection.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\HotKeys\HotKeySetsListener.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\KeyboardHookListener.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\KeyboardState.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\KeyEventArgsExt.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\KeyPressEventArgsExt.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\MouseEventExtArgs.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\MouseHookListener.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\AppHooker.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\GlobalHooker.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\HookCallback.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\Hooker.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\HookNativeMethods.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\KeyboardHookStruct.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\KeyboardNativeMethods.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\Messages.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\MouseNativeMethods.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\MouseStructures.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\Point.cs" />
+    <Compile Include="MouseKeyboardActivityMonitor\WinApi\ThreadNativeMethods.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainF.resx">
+      <DependentUpon>MainF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="LonamiWebs.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KeyMouse.ico" />
+    <Content Include="MouseKeyboardActivityMonitor\HotKeys\ReadMe.txt" />
+    <Content Include="MouseKeyboardActivityMonitor\LICENSE.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
